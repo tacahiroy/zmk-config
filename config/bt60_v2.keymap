@@ -57,7 +57,7 @@
 				&trans        &trans       &trans          &trans        &trans    &kp LC(HOME) &kp LC(END)    &kp HOME    &kp END      &trans      &trans        &trans        &trans
 				&trans        &trans       &trans                                               &trans                                              &trans        &trans        &trans
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN C_PP>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		raise {
 			bindings = <
