@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 //#define ANSI true
-#define HHKB true
+//#define HHKB true
 //#define ISO true
 //#define ALL_1U true
 #define SPLIT_BKSP_RSHFT true
@@ -15,80 +15,72 @@
 
 / {
 	chosen {
-	#ifdef ANSI
-		zmk,matrix_transform = &ansi_transform;
-	#elif defined(HHKB)
-		zmk,matrix_transform = &hhkb_transform;
-	#elif defined(ISO)
-		zmk,matrix_transform = &iso_transform;
-	#elif defined(ALL_1U)
 		zmk,matrix_transform = &all_1u_transform;
-	#else
-		zmk,matrix_transform = &split_transform;
-	#endif
 	};
 
 
 	keymap {
 		compatible = "zmk,keymap";
-		#if defined(HHKB)
 		default_layer {
-				// ------------------------------------------------------------------------------------------
-				// | ESC |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |  \  | `  |
-				// | TAB  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |  BSPC   |
-				// | CTRL  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |      ENTER   |
-				// |  SHIFT    |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   | SHIFT |   1    |
-				// |  CAPS  |  ALT  |  WIN |                     SPACE               |   WIN   | ALT | CTRL |
-				// ------------------------------------------------------------------------------------------
+			// ------------------------------------------------------------------------------------------
+			// | ESC |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |BKSP| DEL |
+			// | TAB  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |    \    |
+			// | CAPS  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     ENTER    |
+			// |  SHIFT    |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  | /   |   SHIFT  |  1  |
+			// |  CTL  |  WIN  |  ALT  |                     SPACE               |   ALT   |  1  | CTRL |
+			// ------------------------------------------------------------------------------------------
 			bindings = <
-				&kp ESC       &kp N1       &kp N2          &kp N3        &kp N4    &kp N5    &kp N6    &kp N7    &kp  N8      &kp  N9     &kp  N0       &kp MINUS     &kp EQUAL    &kp BSLH    &kp GRAVE
-				&kp TAB       &kp Q        &kp W           &kp F         &kp P     &kp G     &kp J     &kp L     &kp  U       &kp  Y      &kp  SEMI     &kp LBKT      &kp RBKT     &kp BSPC
-				&kp LCTRL     &kp A        &kp R           &kp S         &kp T     &kp D     &kp H     &kp N     &kp  E       &kp  I      &kp  O        &kp SQT       &kp RET
-				&kp LSHFT     &kp Z        &kp X           &kp C         &kp V     &kp B     &kp K     &kp M     &kp COMMA    &kp DOT     &kp FSLH      &kp RSHFT     &kp RSHFT
-				&kp LGUI      &kp LALT     &mo LOWER                                         &mt RAISE SPACE                              &mo RAISE     &kp RCTRL     &kp RCTRL
-			>;
+				&kp GRAVE    &kp N1     &kp N2     &kp N3    &kp N4   &kp N5   &kp N6     &kp N7    &kp N8      &kp N9      &kp N0       &kp MINUS   &kp EQUAL   &kp BSLH   &kp ESC
+				&kp TAB      &kp Q      &kp W      &kp F     &kp P    &kp G    &kp J      &kp L     &kp U       &kp Y       &kp SEMI     &kp LBKT    &kp RBKT    &kp BSPC
+				&kp LCTRL    &kp A      &kp R      &kp S     &kp T    &kp D    &kp H      &kp N     &kp E       &kp I       &kp O        &kp SQT     &kp RET
+				&kp LSHFT    &kp Z      &kp X      &kp C     &kp V    &kp B    &kp K      &kp M     &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT   &mo ADJUST
+				&kp LGUI     &kp LALT   &mo LOWER                     &mt RAISE SPACE                                       &mo RAISE    &kp RCTRL   &kp RCTRL
+				>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
+
 		lower {
-			bindings = <                                                                         
-				&trans        &kp F1       &kp F2          &kp F3        &kp F4    &kp F5       &kp F6         &kp F7      &kp F8       &kp F9      &kp F10       &kp F11       &kp F12         &trans       &kp C_PP
-				&trans        &trans       &kp LC(W)       &trans        &trans    &trans       &trans         &kp RA(L)   &trans       &kp RA(Y)   &trans        &kp C_VOL_DN  &kp C_VOL_UP    &kp DEL
-				&kp CLCK      &trans       &trans          &kp LS(LG(S)) &kp F5    &kp F3       &kp LEFT       &kp DOWN    &kp UP       &kp RIGHT   &kp RA(O)     &trans        &trans
-				&trans        &trans       &trans          &trans        &trans    &kp LC(HOME) &kp LC(END)    &kp HOME    &kp END      &trans      &trans        &trans        &trans
-				&trans        &trans       &trans                                               &trans                                              &trans        &trans        &trans
-			>;
+			bindings = <
+				&trans      &kp F1    &kp F2     &kp F3          &kp F4         &kp F5       &kp F6     &kp F7    &kp F8     &kp F9    &kp F10    &kp F11       &kp F12        &trans     &kp C_PP
+				&trans      &trans    &kp LC(W)  &trans          &trans         &trans       &trans     &trans    &trans     &trans    &trans     &kp C_VOL_DN  &kp C_VOL_UP   &kp DEL
+				&kp CLCK    &trans    &trans     &kp LS(LG(S))   &kp F5         &kp F3       &kp LEFT   &kp DOWN  &kp UP     &kp RIGHT &kp RA(O)  &trans        &trans
+				&trans      &trans    &trans     &trans          &kp LC(HOME)   &kp LC(END)  &kp HOME   &kp END   &trans     &trans    &trans     &trans        &trans
+				&trans      &trans    &trans                                    &trans                                                 &trans     &trans        &trans
+				>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
+
 		raise {
 			bindings = <
-				&reset        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans       &trans        &trans       &trans       &kp RA(F4)
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans       &trans        &trans       &trans
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans       &trans        &trans
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans       &trans        &trans
-				&bt BT_PRV    &bt BT_NXT    &trans                                            &trans                                       &trans       &trans        &trans
+				&reset      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans     &RA(F4)
+				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans  
+				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
+				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
+				&bt BT_PRV  &bt BT_NXT   &trans                             &trans                                               &trans     &trans     &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
+
 		adjust {
 			bindings = <
-				&reset        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans        &trans        &trans         &trans       &trans  
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans        &trans        &trans         &trans
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans        &trans        &trans
-				&trans        &trans        &trans          &trans        &trans    &trans    &trans    &trans    &trans       &trans      &trans        &trans        &trans
-				&trans        &trans        &trans                                            &bootloader                                  &trans        &trans        &trans
+				&reset      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans      &trans      &trans  
+				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans      &trans
+				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans
+				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans
+				&trans      &trans       &trans                            &bootloader                                            &trans     &trans    &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
-		#endif
 	};
 };
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        tri_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
-        };
-    };
+	conditional_layers {
+		compatible = "zmk,conditional-layers";
+		tri_layer {
+			if-layers = <LOWER RAISE>;
+			then-layer = <ADJUST>;
+		};
+	};
 };
+// vim: ft=c noet ts=2 sw=2 sts=2
