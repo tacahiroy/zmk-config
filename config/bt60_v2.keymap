@@ -14,9 +14,7 @@
 #define ADJUST  3
 
 / {
-	chosen {
-		zmk,matrix_transform = &hhkb_transform;
-	};
+	zmk,matrix_transform = &hhkb_transform;
 
 	keymap {
 		compatible = "zmk,keymap";
