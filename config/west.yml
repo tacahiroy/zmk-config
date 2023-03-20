@@ -1,10 +1,12 @@
 manifest:
   remotes:
+    - name: tacahiroy-zmk
+      url-base: https://github.com/tacahiroy
     - name: refil-zmk
       url-base: https://github.com/refil
   projects:
     - name: zmk
-      remote: refil-zmk
+      remote: tacahiroy-zmk
       revision: ckp
       import: app/west.yml
   self:
