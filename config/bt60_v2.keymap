@@ -44,7 +44,7 @@
 
 		raise {
 			bindings = <
-				&reset      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans     &RA(F4)
+				&reset      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans     &kp RA(F4)
 				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans  
 				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
 				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
