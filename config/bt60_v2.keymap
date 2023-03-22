@@ -3,10 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 //#define ANSI true
-//#define HHKB true
+#define HHKB true
 //#define ISO true
 //#define ALL_1U true
-#define SPLIT_BKSP_RSHFT true
+//#define SPLIT_BKSP_RSHFT true
 
 #define DEFAULT 0
 #define LOWER   1
@@ -20,11 +20,11 @@
 		compatible = "zmk,keymap";
 		default_layer {
 			bindings = <
-				&kp GRAVE    &kp N1     &kp N2     &kp N3    &kp N4   &kp N5   &kp N6     &kp N7    &kp N8      &kp N9      &kp N0       &kp MINUS   &kp EQUAL   &kp BSLH   &kp ESC
-				&kp TAB      &kp Q      &kp W      &kp F     &kp P    &kp G    &kp J      &kp L     &kp U       &kp Y       &kp SEMI     &kp LBKT    &kp RBKT    &kp BSPC
-				&kp LCTRL    &kp A      &kp R      &kp S     &kp T    &kp D    &kp H      &kp N     &kp E       &kp I       &kp O        &kp SQT     &kp RET
-				&kp LSHFT    &kp Z      &kp X      &kp C     &kp V    &kp B    &kp K      &kp M     &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT   &mo ADJUST
-				&kp LGUI     &kp LALT   &mo LOWER                     &mt RAISE SPACE                                       &mo RAISE    &kp RCTRL   &kp RCTRL
+				&kp GRAVE       &kp N1     &kp N2     &kp N3    &kp N4   &kp N5   &kp N6     &kp N7    &kp N8      &kp N9      &kp N0       &kp MINUS   &kp EQUAL   &kp BSLH   &kp ESC
+				&kp TAB         &kp Q      &kp W      &kp F     &kp P    &kp G    &kp J      &kp L     &kp U       &kp Y       &kp SEMI     &kp LBKT    &kp RBKT    &kp BSPC
+				&mt LCTRL ESC   &kp A      &kp R      &kp S     &kp T    &kp D    &kp H      &kp N     &kp E       &kp I       &kp O        &kp SQT     &kp RET
+				&kp LSHFT       &kp Z      &kp X      &kp C     &kp V    &kp B    &kp K      &kp M     &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT   &mo ADJUST
+				&kp LGUI        &kp LALT   &mo LOWER                     &mt RAISE SPACE                                       &mo RAISE    &kp RCTRL   &kp RCTRL
 				>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
