@@ -43,7 +43,7 @@
 		raise {
 			bindings = <
 				&reset      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans     &kp RA(F4)
-				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans  
+				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans      &trans
 				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
 				&trans      &trans       &trans     &trans      &trans      &trans     &trans     &trans    &trans     &trans    &trans     &trans     &trans
 				&bt BT_PRV  &bt BT_NXT   &trans                             &trans                                               &trans     &trans     &trans
@@ -53,11 +53,11 @@
 
 		adjust {
 			bindings = <
-				&reset      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans      &trans      &trans  
+				&reset      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans      &trans      &bootloader
 				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans      &trans
 				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans
 				&trans      &trans       &trans     &trans      &trans     &trans      &trans    &trans    &trans      &trans     &trans     &trans    &trans
-				&trans      &trans       &trans                            &bootloader                                            &trans     &trans    &trans
+				&trans      &trans       &trans                            &kp A                                                  &trans     &trans    &trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
